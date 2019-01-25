@@ -277,6 +277,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var stream = weex.requireModule('stream');
 var storage = weex.requireModule('storage');
 var navigator = weex.requireModule('navigator');
+const router = weex.requireModule('wb-router')
 
 var encoder = typeof encodeURIComponent === 'function' ? encodeURIComponent : typeof encodeURI === 'function' ? encodeURI : function (x) {
   return x;
@@ -443,20 +444,22 @@ function getLanguage() {
 }
 
 function jumpTo(url, title, lang) {
-  getLanguage(function (language) {
-    storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, lang || language));
-    navigator.push({
-      url: createURL('bf0305c14b511b24a4e616f53926432b', { language: language, title: i18n(title, lang || language) })
-    });
-  });
+  const language = 'zh'
+  storage.setItem('CURRENT_DOCUMENT_URL', i18n(url, lang || language));
+  router.open({
+    name: 'weex',
+    url: createURL('bf0305c14b511b24a4e616f53926432b', { language: language, title: i18n(title, lang || language) }),
+    title: '文档'
+  })
 }
 
 function viewSource(hash) {
-  getLanguage(function (language) {
-    navigator.push({
-      url: createURL('f6ce29faf686eabc38b410bf4828fa5a', { hash: hash, language: language })
-    });
-  });
+  const language = 'zh'
+  router.open({
+    name: 'weex',
+    url: createURL('f6ce29faf686eabc38b410bf4828fa5a', { hash: hash, language: language }),
+    title: '源码'
+  })
 }
 
 function setTitleBar(options) {
