@@ -276,7 +276,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var stream = weex.requireModule('stream');
 var storage = weex.requireModule('storage');
-var navigator = weex.requireModule('navigator');
 const router = weex.requireModule('wb-router')
 
 var encoder = typeof encodeURIComponent === 'function' ? encodeURIComponent : typeof encodeURI === 'function' ? encodeURI : function (x) {
