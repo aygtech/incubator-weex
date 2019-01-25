@@ -595,11 +595,12 @@ function jumpTo(url, title, lang) {
 }
 
 function viewSource(hash) {
-  getLanguage(function (language) {
-    navigator.push({
-      url: createURL('f6ce29faf686eabc38b410bf4828fa5a', { hash: hash, language: language })
-    });
-  });
+  const language = 'zh'
+  router.open({
+    name: 'weex',
+    url: createURL('f6ce29faf686eabc38b410bf4828fa5a', { hash: hash, language: language }),
+    title: '源码'
+  })
 }
 
 function setTitleBar(options) {
