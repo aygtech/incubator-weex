@@ -2544,7 +2544,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.jumpTo(_vm.i18n(exampleGroup.docLink))
         }
       }
-    }, [_vm._v(_vm._s(_vm.i18n(_vm.dict.READ_MORE)) + " >>")]) : _vm._e()]) : _vm._e(), _c('cell', {
+    }, [_vm._v(_vm._s(_vm.i18n(_vm.dict.READ_MORE)) + "")]) : _vm._e()]) : _vm._e(), _c('cell', {
       key: exampleGroup.type + '-examples',
       staticClass: ["section"],
       appendAsTree: true,
