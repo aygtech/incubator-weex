@@ -736,7 +736,6 @@ static WeexCore::ScriptBridge* jsBridge = nullptr;
         env->SetDeviceHeight(std::to_string(screenSize.height));
         env->AddOption("screen_width_pixels", std::to_string(screenSize.width));
         env->AddOption("screen_height_pixels", std::to_string(screenSize.height));
-        env->AddOption("status_bar_height", std::to_string([[UIApplication sharedApplication] statusBarFrame].size.height));
         
         platformBridge = new WeexCore::PlatformBridge();
         platformBridge->set_platform_side(new WeexCore::IOSSide());
@@ -830,6 +829,13 @@ static WeexCore::ScriptBridge* jsBridge = nullptr;
         
         platformBridge->core_side()->SetDefaultHeightAndWidthIntoRootDom([pageId UTF8String] ?: "", (float)width, (float)height, (bool)isWidthWrapContent, (bool)isHeightWrapContent);
     }
+}
+
++ (void)setDeviceSize:(CGSize)size
+{
+    WeexCore::WXCoreEnvironment* env = WeexCore::WXCoreEnvironment::getInstance();
+    env->SetDeviceWidth(std::to_string(size.width));
+    env->SetDeviceHeight(std::to_string(size.height));
 }
 
 + (void)setViewportWidth:(NSString*)pageId width:(CGFloat)width

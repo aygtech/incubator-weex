@@ -28,6 +28,7 @@ import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.taobao.weex.BuildConfig;
+import com.taobao.weex.adapter.IWXJscProcessManager;
 import com.taobao.weex.common.WXConfig;
 import com.taobao.weex.utils.FontDO;
 import com.taobao.weex.utils.LogLevel;
